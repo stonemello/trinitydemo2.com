@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Admin | Trinity Christian Junior School</title><link rel="stylesheet" href="css/style.css"></head>
+<body onload="adminGuard()">
+<header class="header"><div class="container nav"><a class="brand" href="index.html"><div class="crest">✝</div><div><strong>TRINITY CHRISTIAN</strong><b>JUNIOR SCHOOL</b><small>ADMINISTRATION</small></div></a><button class="submit" onclick="location.href='index.html'">View Website</button></div></header>
+<main class="container page-content admin-panel">
+<div id="loginBox" class="admin-login">
+<h2>Administrator Login</h2>
+<p class="admin-note">This local admin area is opened with <b>Ctrl + Shift + K</b>.</p>
+<form onsubmit="adminLogin(event)">
+<label>Username<input id="adminUser" required></label>
+<label>Password<input id="adminPass" type="password" required></label>
+<button class="submit">Sign In</button>
+<p id="adminError" style="color:#a92727"></p>
+</form>
+<p class="admin-note"><b>Demo credentials:</b> admin / TrinityAdmin2026!</p>
+</div>
+<div id="dashboard" style="display:none">
+<div class="admin-row"><div><h1>School Administration</h1><p class="admin-note">Manage local announcements and view enrolment information stored in this browser.</p></div><button class="submit danger" onclick="logoutAdmin()">Log Out</button></div>
+<div class="cards">
+<div><b>Enrolment Submissions</b><h2 id="applicationCount">0</h2></div>
+<div><b>Announcements</b><h2 id="announcementCount">0</h2></div>
+<div><b>Site Status</b><h2>LOCAL</h2></div>
+</div>
+<section class="admin-editor"><h2>Add Announcement</h2><form onsubmit="addAnnouncement(event)"><label>Title<input id="annTitle" required></label><label>Message<textarea id="annText" rows="4" required></textarea></label><button class="submit">Publish Announcement</button></form><div id="annList" class="admin-list"></div></section>
+<section class="admin-editor"><h2>Enrolment Submissions</h2><p class="admin-note">These are submissions saved by this browser's local storage.</p><div id="appList" class="admin-list"></div></section>
+<div class="sidebox"><b>Security notice:</b> This is a standalone HTML site. The keyboard shortcut only hides the admin entry point; it is not a secure authentication system. Anyone with the website files can inspect the JavaScript and local browser data. Do not use this for sensitive real-world records until a secure backend is connected.</div>
+</div></main>
+<script src="js/script.js"></script></body></html>
